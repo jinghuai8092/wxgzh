@@ -142,8 +142,8 @@ pip3 install azure-cognitiveservices-speech
   "character_desc": "你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。",  # 人格描述
   # 订阅消息，公众号和企业微信channel中请填写，当被订阅时会自动回复，可使用特殊占位符。目前支持的占位符有{trigger_prefix}，在程序中它会自动替换成bot的触发词。
   "subscribe_msg": "感谢您的关注！\n这里是ChatGPT，可以自由对话。\n支持语音对话。\n支持图片输出，画字开头的消息将按要求创作图片。\n支持角色扮演和文字冒险等丰富插件。\n输入{trigger_prefix}#help 查看详细指令。",
-  "use_linkai": false,                                        # 是否使用LinkAI接口，默认关闭，开启后可国内访问，使用知识库和MJ
-  "linkai_api_key": "",                                       # LinkAI Api Key
+  "use_linkai": true,                                        # 是否使用LinkAI接口，默认关闭，开启后可国内访问，使用知识库和MJ
+  "linkai_api_key": "Link_GiPaAA25gPtCGjoioSzHG7UDNJADIi0bzcQZ2XZ3tA",                                       # LinkAI Api Key
   "linkai_app_code": ""                                       # LinkAI 应用code
 }
 ```
