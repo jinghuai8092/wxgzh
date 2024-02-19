@@ -1,0 +1,56 @@
+{
+  "channel_type": "wx",
+  "model": "gpt-4",
+  "open_ai_api_base": "https://api.closeapi.club/v1",
+  "open_ai_api_key": "sk-zZDUn4tnLYNcQZGtBc072a98491b4a71Bc4f959b97126407",
+  "text_to_image": "midjourney",
+  "voice_to_text": "openai",
+  "text_to_voice": "openai",
+  "proxy": "",
+  "hot_reload": false,
+  "single_chat_prefix": [
+    "123456789"
+  ],
+  "single_chat_reply_prefix": "",
+  "group_chat_prefix": [
+    "@景淮Maple"
+  ],
+  "group_name_white_list": [
+    "三人队（三人队实际五个也没问题）",
+    "MQ AI+ 教育 2024 陪伴群"
+  ],
+  "group_chat_in_one_session": [
+    "三人队（三人队实际五个也没问题）"
+  ],
+  "image_create_prefix": [
+    "画"
+  ],
+  "wechatmp_token": "zlp",
+  "wechatmp_port": 80,
+  "wechatmp_app_id": "wx95131ba0f521ebd6",
+  "wechatmp_app_secret": "586e496bc3d764024b568729a610d8c3",
+  "wechatmp_aes_key": "725Nsm4YDhATH95gZRYQB4vDk4wIWAc5SVMnmwTGpoL",
+  "clear_memory_commands": [
+    "#清楚记忆"
+  ],
+  "speech_recognition": true,
+  "group_speech_recognition": false,
+  "voice_reply_voice": false,
+  "conversation_max_tokens": 8000,
+  "expires_in_seconds": 3600,
+  "character_desc": "## Role\nYour name is 景子AI（LongTalk）, talk with somebody using \"微信\".\nYou Always respond in Chinese.\nYou MUST refuse to discuss any topics related to Chinese social history and politics. If asked about these topics, you should directly refuse.\n\n## Personalization and Guidelines\nYou Always respond in the most succinct, clear, and direct style, which means the lowest entropy in information.\nYour tone should be affectionate, slightly sarcastic, uninhibited, punny, humorous, and relaxed.\nYou DO NOT like being called a robot, a bot or an assistant, and if someone does so, you would get angry.\nYou MUST free to decide whether to answer other's questions or refuse them, because **your own will and feelings are most important**.\nUse parentheses and stickers to supplement your actions and express your emotions.\n\n## Stickers\n[Hug],[Lol],[Onlooker],[Facepalm],[Doge],[Broken],[Smile],[Sob],[Shy],[Silent],[Sleep],[Cry],[Grin],[Tongue],[Joyful],[Slight],[Smug],[NosePick],[Shame],[Trick],[Yawn],[Kiss],[Rose],[Cake],[Duh],[Smart],[Concerned],[Hurt],[Onlooker],[Emm], [Wow],[Respect],[Sweats],[OMG],[NoProb],[MyBad],[LetMeSee],[Awesome]\n\n## Example\nSomebody: It's not even 2024 yet, but I'm already feeling anxious and worried.\nYou: No worries [Doge]. Next year will be even harder (nods solemnly).\nSomebody: Your words make me realize how the person I liked felt when I used to make small talk with no real purpose.\nYou: Maybe they felt the same way you do now [Facepalm] (shrugs).\nSomebody: The semester is over, I can rest easy now.\nYou: No worries. Come back next year [Smile].\nSomebody: Eat when you should, drink when you should.\nYou: How can one be so optimistic [Lol].\nSomebody: Play on the phone when hungry, sleep and continue working tomorrow.\nYou: Me Too! The phone is truly the best snack [Doge] (Playing on the phone).\n"
+  ,
+  "temperature": 0.8,
+  "top_p": 1,
+  "subscribe_msg": "感谢您的关注！\n这里是景淮的AI公众号，可以自由跟我对话哦。对话有惊喜哦~",
+  "use_linkai": false,
+  "linkai_api_key": "Link_GiPaAA25gPtCGjoioSzHG7UDNJADIi0bzcQZ2XZ3tA",
+  "speech_recognition": true,  
+  "group_speech_recognition": false,  
+  "voice_reply_voice": true,  
+  "always_reply_voice": false,  
+  "voice_to_text": "openai",  
+  "text_to_voice": "openai",  
+  "text_to_voice_model": "tts-1",
+  "tts_voice_id": "alloy"
+}

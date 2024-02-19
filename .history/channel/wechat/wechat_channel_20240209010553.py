@@ -187,6 +187,9 @@ class WechatChannel(ChatChannel):
     def send(self, reply: Reply, context: Context):
         receiver = context["receiver"]
         if reply.type == ReplyType.TEXT:
+def send(self, reply: Reply, context: Context):
+        receiver = context["receiver"]
+        if reply.type == ReplyType.TEXT:
             # 分割标点符号
             split_punctuation = ['。','.']
             # 需要被保留的标点符号
