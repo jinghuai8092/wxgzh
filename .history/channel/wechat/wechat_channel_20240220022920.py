@@ -187,37 +187,33 @@ class WechatChannel(ChatChannel):
     def send(self, reply: Reply, context: Context):
         receiver = context["receiver"]
         if reply.type == ReplyType.TEXT:
-            # 分割标点符号
-            split_punctuation = ['。','.']
+            # 分割标点符号，带捕获组以保留分隔符
+            split_punctuation = ['。', '\.']
             # 需要被保留的标点符号
-            preserved_punctuation = [',',', ','~', '？','?',' ']
+            preserved_punctuation = [',', ', ', '~', '？', '?', ' ']
 
-            # 创建一个正则表达式模式，用来分割消息
-            pattern = '|'.join(map(re.escape, split_punctuation))
-            # 使用正则表达式来分割消息
+            # 创建一个正则表达式模式，用来分割并保留标点
+            pattern = '(' + '|'.join(map(re.escape, split_punctuation)) + ')'
+            # 使用正则表达式来分割消息，并保留分割符号
             split_messages = re.split(pattern, reply.content)
 
-            # 移除空行并确保每段末尾有句号
-            split_messages = [msg.strip() + '。' for msg in split_messages if msg.strip() != '']
+            # 组合消息和其后的分隔符
+            combined_messages = []
+            for i in range(0, len(split_messages)-1, 2):
+                combined_messages.append(split_messages[i] + (split_messages[i+1] if i+1 < len(split_messages) else ''))
 
-
-            for msg in split_messages:
-                # 移除消息中的标点符号，除了需要被保留的标点符号
-                for punc in split_punctuation:
-                    if punc not in preserved_punctuation:
-                        msg = msg.replace(punc, '')
-                            # 定义结束标点符号列表
-                end_punctuation = ['。', '！', '？', '~', '!', '?',']']
-
-                # 确保每段消息末尾都有合适的结束标点
-                if not any(msg.endswith(punc) for punc in end_punctuation):
-                    msg += '。'  # 如果末尾没有结束标点，则添加句号
-                # 发送消息
-                itchat.send(msg, toUserName=receiver)
-                logger.info("[WX] sendMsg={}, receiver={}".format(msg, receiver))
-                # 等待x秒
-                r_time = random.uniform(1,3)
-                time.sleep(r_time)
+            for msg in combined_messages:
+                if msg.strip() != '':
+                    # 移除消息中不需要被保留的标点符号
+                    for punc in split_punctuation:
+                        if punc not in preserved_punctuation:
+                            msg = msg.replace(punc, '')
+                    # 发送消息
+                    itchat.send(msg, toUserName=receiver)
+                    logger.info("[WX] sendMsg={}, receiver={}".format(msg, receiver))
+                    # 等待x秒
+                    r_time = random.uniform(1, 3)
+                    time.sleep(r_time)
         elif reply.type == ReplyType.ERROR or reply.type == ReplyType.INFO:
             itchat.send(reply.content, toUserName=receiver)
             logger.info("[WX] sendMsg={}, receiver={}".format(reply, receiver))

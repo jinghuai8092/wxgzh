@@ -207,7 +207,7 @@ class WechatChannel(ChatChannel):
                     if punc not in preserved_punctuation:
                         msg = msg.replace(punc, '')
                             # 定义结束标点符号列表
-                end_punctuation = ['。', '！', '？', '~', '!', '?',']']
+                end_punctuation = ['。', '！', '？', '~', '!', '?'，']']
 
                 # 确保每段消息末尾都有合适的结束标点
                 if not any(msg.endswith(punc) for punc in end_punctuation):

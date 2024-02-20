@@ -190,15 +190,15 @@ class WechatChannel(ChatChannel):
             # 分割标点符号
             split_punctuation = ['。','.']
             # 需要被保留的标点符号
-            preserved_punctuation = [',',', ','~', '？','?',' ']
+            preserved_punctuation = ['。','.',',',', ','~', '？','?',' ']
 
             # 创建一个正则表达式模式，用来分割消息
             pattern = '|'.join(map(re.escape, split_punctuation))
             # 使用正则表达式来分割消息
             split_messages = re.split(pattern, reply.content)
 
-            # 移除空行并确保每段末尾有句号
-            split_messages = [msg.strip() + '。' for msg in split_messages if msg.strip() != '']
+            # 移除空行
+            split_messages = [msg for msg in split_messages if msg.strip() != '']
 
 
             for msg in split_messages:
@@ -206,12 +206,6 @@ class WechatChannel(ChatChannel):
                 for punc in split_punctuation:
                     if punc not in preserved_punctuation:
                         msg = msg.replace(punc, '')
-                            # 定义结束标点符号列表
-                end_punctuation = ['。', '！', '？', '~', '!', '?',']']
-
-                # 确保每段消息末尾都有合适的结束标点
-                if not any(msg.endswith(punc) for punc in end_punctuation):
-                    msg += '。'  # 如果末尾没有结束标点，则添加句号
                 # 发送消息
                 itchat.send(msg, toUserName=receiver)
                 logger.info("[WX] sendMsg={}, receiver={}".format(msg, receiver))

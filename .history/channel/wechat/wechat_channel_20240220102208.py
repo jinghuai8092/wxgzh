@@ -207,11 +207,11 @@ class WechatChannel(ChatChannel):
                     if punc not in preserved_punctuation:
                         msg = msg.replace(punc, '')
                             # 定义结束标点符号列表
-                end_punctuation = ['。', '！', '？', '~', '!', '?',']']
+                end_punctuation = ['。', '！', '？', '~', '!', '?']
 
                 # 确保每段消息末尾都有合适的结束标点
                 if not any(msg.endswith(punc) for punc in end_punctuation):
-                    msg += '。'  # 如果末尾没有结束标点，则添加句号
+                msg += '。'  # 如果末尾没有结束标点，则添加句号
                 # 发送消息
                 itchat.send(msg, toUserName=receiver)
                 logger.info("[WX] sendMsg={}, receiver={}".format(msg, receiver))
