@@ -61,7 +61,7 @@ class Hello(Plugin):
         if e_context["context"].type == ContextType.PATPAT:
             e_context["context"].type = ContextType.TEXT
             msg: ChatMessage = e_context["context"]["msg"]
-            e_context["context"].content = f"用“（）”内写文字的描述方式模拟正在进行的动作，然后询问用户有什么需要帮助的？"
+            e_context["context"].content = f"用“（）”的文字描述方式模拟动作，然后询问用户有什么需要帮助的？"
             e_context.action = EventAction.BREAK  # 事件结束，进入默认处理逻辑
             if not self.config or not self.config.get("use_character_desc"):
                 e_context["context"]["generate_breaked_by"] = EventAction.BREAK
